@@ -1,8 +1,7 @@
 def deploy(args) {
     args.script.sh 'mkdir -p .elasticbeanstalk'
     args.script.sh """
-FILE=".elasticbeanstalk/config.yml"
-/bin/cat <<EOM >$FILE
+/bin/cat <<EOM > .elasticbeanstalk/config.yml
 branch-defaults:
   develop:
     environment: ${args.env}
