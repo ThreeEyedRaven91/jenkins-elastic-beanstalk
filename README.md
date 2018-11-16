@@ -37,7 +37,8 @@ steps {
             keyName: "<ec2 key name>",
             platform: "<platform>",
             region: "<region>",
-            profile: "<profile>"
+            profile: "<profile>",
+            script: this
         )
     }
 }
