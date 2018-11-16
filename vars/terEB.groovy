@@ -1,7 +1,7 @@
 def deploy(args) {
     args.script.sh 'mkdir -p .elasticbeanstalk'
     args.script.sh '> .elasticbeanstalk/config.yml'
-    def file = new File('.elasticbeanstalk/config.yml')
+    def file = new File('./.elasticbeanstalk/config.yml')
     file << """
 branch-defaults:
   develop:
