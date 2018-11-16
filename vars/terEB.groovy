@@ -1,8 +1,8 @@
 def deploy(args) {
     args.script.sh 'mkdir -p .elasticbeanstalk'
-    args.script.sh '> .elasticbeanstalk/config.yml'
-    def file = new File('./.elasticbeanstalk/config.yml')
-    file << """
+    args.script.sh """
+FILE=".elasticbeanstalk/config.yml"
+/bin/cat <<EOM >$FILE
 branch-defaults:
   develop:
     environment: ${args.env}
@@ -21,6 +21,7 @@ global:
   platform_version: null
   profile: ${args.profile}
   sc: git
-  workspace_type: Application"""
+  workspace_type: Application
+EOM"""
     args.script.sh "eb deploy ${args.env}"
 }
